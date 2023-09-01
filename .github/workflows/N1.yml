@@ -11,10 +11,10 @@ on:
     - cron: "0 0 1,16 * *"
 
 env:
-  REPO_URL: https://github.com/immortalwrt/immortalwrt
-  REPO_BRANCH: openwrt-21.02
+  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_BRANCH: master
   FEEDS_CONF: config/feeds.conf.default
-  CONFIG_FILE: config/N1.config
+  CONFIG_FILE: config/.config
   DIY_P1_SH: config/diy-part1.sh
   DIY_P2_SH: config/diy-part2.sh
   TZ: Asia/Shanghai
@@ -91,7 +91,6 @@ jobs:
         echo "compile_status=success" >> $GITHUB_ENV
         
     - name: Clean up server space
-      if: steps.compile.outputs.status == 'success' && !cancelled()
       run: |
         cd openwrt/
         rm -rf $(ls . | grep -v "^bin$" | xargs) 2>/dev/null
