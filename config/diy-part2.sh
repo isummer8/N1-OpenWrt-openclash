@@ -19,7 +19,6 @@ sed -i 's/TARGET_CFLAGS += -DHAVE_MAP_SYNC/TARGET_CFLAGS += -DHAVE_MAP_SYNC -D_L
 
 # => 阿里云web dav
 git clone https://github.com/messense/aliyundrive-webdav.git package/luci-app-aliyundrive-webdav
-sed -i 's/stripped/release/g' feeds/packages/multimedia/aliyundrive-webdav/Makefile
 
 # => 阿里ddns
 git clone https://github.com/chenhw2/luci-app-aliddns.git package/luci-app-aliddns
@@ -39,5 +38,9 @@ rm -rf feeds/luci/themes/luci-theme-argon
 
 #主题
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
-
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
+
+# 临时修复acpid,xfsprogs,aliyundrive-webdav
+sed -i 's#flto#flto -D_LARGEFILE64_SOURCE#g' feeds/packages/utils/acpid/Makefile
+sed -i 's#SYNC#SYNC -D_LARGEFILE64_SOURCE#g' feeds/packages/utils/xfsprogs/Makefile
+sed -i 's/stripped/release/g' feeds/packages/multimedia/aliyundrive-webdav/Makefile
