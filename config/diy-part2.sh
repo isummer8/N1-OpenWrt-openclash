@@ -14,6 +14,7 @@ rm -rf feeds/packages/lang/golang
 svn export https://github.com/sbwml/packages_lang_golang/branches/20.x feeds/packages/lang/golang
 git clone https://github.com/sbwml/luci-app-alist package/alist
 
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # => 阿里ddns
 git clone https://github.com/chenhw2/luci-app-aliddns.git package/luci-app-aliddns
