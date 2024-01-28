@@ -14,8 +14,6 @@ rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 21.x feeds/packages/lang/golang
 git clone https://github.com/sbwml/luci-app-alist package/alist
 
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
 # => 阿里ddns
 git clone https://github.com/chenhw2/luci-app-aliddns.git package/luci-app-aliddns
 
@@ -24,7 +22,6 @@ git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dock
 
 # => openclash
 git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
-
 
 # => 删除默认argon主题
 rm -rf feeds/luci/themes/luci-theme-argon
